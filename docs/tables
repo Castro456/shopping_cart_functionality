@@ -1,0 +1,36 @@
+CREATE SCHEMA shopping_cart;
+
+CREATE TABLE products (
+ id INT NOT NULL AUTO_INCREMENT,
+ name VARCHAR(255) NOT NULL,
+ description TEXT,
+ price DECIMAL(7,2),
+ created_at DATETIME NOT NULL,
+ PRIMARY KEY (id)
+) ENGINE=InnoDB;
+
+
+INSERT INTO products (name, description, price, created_at)
+VALUES ('Titan Watch', 'Can see time precisely', 9999.00, '2024-07-11 09:00:00');
+
+INSERT INTO products (name, description, price, created_at)
+VALUES ('Skybags', 'Comes anywhere you go', 5500.10, '2024-07-11 10:00:00');
+
+INSERT INTO products (name, description, price, created_at)
+VALUES ('Earpods', 'Feel what you hear', 25000.50, '2024-07-11 12:00:00');
+
+INSERT INTO products (name, description, price, created_at)
+VALUES ('Iphone', 'Privacy matters', 90000.00, '2024-07-11 13:00:00');
+
+INSERT INTO products (name, description, price, created_at)
+VALUES ('Samsung TV', 'Pleasant to your eyes', 57500.30, '2024-07-11 14:00:00');
+
+
+CREATE TABLE users (
+ id INT NOT NULL AUTO_INCREMENT,
+ name VARCHAR(255) NOT NULL,
+ email VARCHAR(255) NOT NULL,
+ phone NUMERIC(20) NOT NULL,
+ password VARCHAR(255) NOT NULL,
+ PRIMARY KEY (id)
+) ENGINE=InnoDB;
