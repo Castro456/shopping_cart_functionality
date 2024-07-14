@@ -22,6 +22,10 @@ $route['cart/remove/(:any)'] = 'CartController/remove/$1';
 $route['cart/clear'] = 'CartController/clear';
 $route['cart/update'] = 'CartController/update';
 
+$route['payment/checkout'] = 'PaymentController/checkout';
+$route['payment/success'] = 'PaymentController/success_page';
+$route['payment/failed'] = 'PaymentController/failure_page';
+
 $route['default_controller'] = 'DashboardController';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;

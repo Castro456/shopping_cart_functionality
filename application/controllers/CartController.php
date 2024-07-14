@@ -13,6 +13,7 @@ class CartController extends CI_Controller {
     parent::__construct();
     $this->load->library('cart');
     $this->load->model('ProductModel');
+    $this->load->library('session');
   }
 
 
@@ -24,6 +25,9 @@ class CartController extends CI_Controller {
   {
     $data['products'] = $this->ProductModel->get_all_product_details();
     $data['cart'] = $this->cart->contents();
+
+    // Save cart data to session
+    $this->session->set_userdata('cart', $data['cart']);
 
     $this->load->view('layouts/header');
     $this->load->view('cart/cart', $data);
@@ -48,6 +52,10 @@ class CartController extends CI_Controller {
     );
 
     $this->cart->insert($data);
+
+    // Save cart data to session after adding item
+    $this->session->set_userdata('cart', $this->cart->contents());
+
     redirect('cart');
   }
 
@@ -64,6 +72,10 @@ class CartController extends CI_Controller {
     );
 
     $this->cart->update($data);
+
+    // Save cart data to session after updating cart
+    $this->session->set_userdata('cart', $this->cart->contents());
+
     redirect('cart');
   }
 
@@ -75,6 +87,10 @@ class CartController extends CI_Controller {
   public function clear()
   {
     $this->cart->destroy();
+
+    // Completely clear cart data from session
+    $this->session->unset_userdata('cart');
+
     redirect('cart');
   }
 
@@ -100,6 +116,9 @@ class CartController extends CI_Controller {
         $this->cart->update($data);
       }
     }
+
+    // Save cart data to session after updating cart
+    $this->session->set_userdata('cart', $this->cart->contents());
 
     redirect('cart');
   }

@@ -30,6 +30,15 @@ Develop shopping cart functionality using CodeIgniter 3.
   - `add($id)`: Adds a product to the cart based on the product ID.
   - `remove($rowid)`: Removes a product from the cart based on the row ID.
   - `clear()`: Clears all products from the cart.
+- Integrated `Payment` controller (`PaymentController.php`) for handling payment integration with Razorpay.
+  - Methods include `checkout()`, `success()`, `failure()` for payment initiation, success callback handling, and failure handling.
+  - **Testing Razorpay Integration:**
+    - For testing Razorpay payments, developers should obtain their own sandbox API keys from Razorpay's dashboard.
+    - Sandbox API keys can be obtained by signing up for a Razorpay account and navigating to **Settings** > **API Keys** in the Razorpay Dashboard.
+    - Replace `your_sandbox_key_id` and `your_sandbox_key_secret` in your application with the sandbox API keys obtained from Razorpay.
+    - **Example Sandbox Keys:**
+      - **Key ID:** `your_sandbox_key_id`
+      - **Key Secret:** `your_sandbox_key_secret`
 
 ### 6. Views
 - Designed views (`cart.php`, `dashboard.php`, etc.) to:
