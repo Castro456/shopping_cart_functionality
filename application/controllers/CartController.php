@@ -44,6 +44,7 @@ class CartController extends CI_Controller {
   public function add($id)
   {
     $product = $this->ProductModel->get_product_detail($id);
+    // log_message('success', 'Happy Coding');
     $data = array(
       'id'   => $product['product_id'],
       'qty'  => 1,
